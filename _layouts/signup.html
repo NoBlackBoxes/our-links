@@ -1,0 +1,60 @@
+---
+layout: default
+---
+
+<article class="signup-page">
+  <header class="signup-header" data-signup-default>
+    <h1>{{ page.heading }}</h1>
+    <p>{{ page.message }}</p>
+  </header>
+
+  {% for event_entry in site.data.events %}
+    {% assign event_id = event_entry[0] %}
+    {% assign event = event_entry[1] %}
+    <header
+      class="signup-header"
+      data-event-context="{{ event_id }}"
+      data-offer-starts="{{ event.offer_starts }}"
+      data-offer-ends="{{ event.offer_ends }}"
+      hidden
+    >
+      <h1>{{ event.name }}</h1>
+      <p>{{ event.message }}</p>
+
+      <section class="offer-message">
+        <h2>Get {{ event.discount }} off</h2>
+        <p>
+          Sign up by <strong>{{ event.offer_ends_label }}</strong> to receive
+          {{ event.discount }} off {{ event.discount_applies_to }}.
+        </p>
+      </section>
+    </header>
+  {% endfor %}
+
+  <script src="https://form.jotform.com/jsform/{{ page.jotform_id }}"></script>
+</article>
+
+<script>
+  (() => {
+    const requestedEvent = new URLSearchParams(window.location.search)
+      .get("event");
+    const eventContexts = [...document.querySelectorAll("[data-event-context]")];
+    const eventContext = eventContexts.find((context) =>
+      context.dataset.eventContext === requestedEvent
+    );
+
+    if (!eventContext) return;
+
+    const startsAt = Date.parse(eventContext.dataset.offerStarts);
+    const endsAt = Date.parse(eventContext.dataset.offerEnds);
+    const now = Date.now();
+    const offerIsActive = Number.isFinite(startsAt) &&
+      Number.isFinite(endsAt) && startsAt < endsAt &&
+      now >= startsAt && now < endsAt;
+
+    if (!offerIsActive) return;
+
+    document.querySelector("[data-signup-default]").hidden = true;
+    eventContext.hidden = false;
+  })();
+</script>

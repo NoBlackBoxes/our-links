@@ -45,7 +45,7 @@ main {
   object-fit: contain;
 }
 
-.event-header {
+.signup-header {
   margin-bottom: 24px;
 }
 
@@ -65,7 +65,7 @@ main {
   margin-bottom: 0;
 }
 
-.event-page iframe {
+.signup-page iframe {
   display: block;
   width: 100%;
   margin: 24px 0 38px;

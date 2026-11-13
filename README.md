@@ -1,32 +1,30 @@
 # No Black Boxes links
 
-A small Markdown link page and separate event signup pages published with
-GitHub Pages.
+A small Markdown link page and newsletter signup page published with GitHub
+Pages.
 
 ## Edit the links
 
 Edit the list in `index.md`. GitHub Pages converts it to the website automatically.
 
-## Add an event signup page
+## Add an event offer
 
-1. Copy `events/_template.md` to `events/event-name.md`.
-2. Replace every placeholder in its frontmatter:
-   - `permalink` is the address encoded in the event QR code.
-   - `event` is stored in the hidden Jotform field.
-   - `offer_starts` is the machine-readable start, including its time zone.
-   - `offer_ends` is the machine-readable deadline, including its time zone.
-   - `offer_ends_label` is the same deadline written for visitors.
-   - `jotform_id` is the ID of the permanent signup form.
-3. Replace the final line with the permanent, event-specific message.
-4. Build the site and test the event URL before creating or printing its QR code.
+1. Add the event to `_data/events.yml` with a unique identifier, message,
+   discount and offer dates.
+2. Build the site and test the event URL before creating or printing its QR
+   code.
 
-For example, a permalink of `/events/example-2026/` produces:
+The GIF London QR uses:
 
-<https://noblackboxes.github.io/our-links/events/example-2026/>
+<https://noblackboxes.github.io/our-links/signup/?event=gif-london-2026>
 
-The event name, event message and form remain on the page permanently. The
-discount box is shown only between `offer_starts` and `offer_ends`. Keep the
-page at the same address because printed QR codes cannot be changed.
+While the configured offer is active, that URL shows the GIF London message and
+discount. Outside the offer window, the same URL shows the generic newsletter
+signup page. The form remains available at all times.
+
+The `event` query parameter is stored in the hidden Jotform field with the same
+name. Jotform's submission time determines whether a signup arrived before the
+deadline.
 
 The date check only changes what the page displays. It does not securely enforce
 the discount. Set the same deadline on the coupon or payment system and state
