@@ -21,16 +21,16 @@ body {
 }
 
 main {
-  width: min(100% - 32px, 640px);
+  width: min(100% - 32px, 680px);
   margin: 0 auto;
-  padding: 40px 0 48px;
+  padding: 28px 0 48px;
 }
 
 .brand {
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  margin-bottom: 48px;
+  margin-bottom: 32px;
   color: inherit;
   font-size: 0.75rem;
   font-weight: 750;
@@ -40,22 +40,30 @@ main {
 }
 
 .brand img {
-  width: 64px;
-  height: 64px;
+  width: 54px;
+  height: 54px;
   object-fit: contain;
+}
+
+iframe[id="241096255305352"] {
+  display: block;
+  width: 100%;
+  margin: 18px 0 38px;
+  border: 0;
+  border-radius: 8px;
+  background: #000000;
 }
 
 h1 {
   margin: 0;
-  font-size: clamp(2.8rem, 12vw, 5rem);
-  letter-spacing: -0.06em;
-  line-height: 0.95;
+  font-size: 1.65rem;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
 }
 
-h1 + p {
-  margin: 18px 0 36px;
-  color: var(--muted);
-  font-size: 1.05rem;
+h2 {
+  margin: 36px 0 14px;
+  font-size: 1.25rem;
 }
 
 ul {

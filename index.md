@@ -1,17 +1,23 @@
 ---
 layout: default
-page_title: Useful links
+page_title: No Black Boxes links
 ---
 
-# Useful links
+# Contact us here
 
-Courses, open-source resources and practical notes from No Black Boxes.
+<!-- markdownlint-disable MD033 -->
+
+<script src="https://form.jotform.com/jsform/241096255305352"></script>
+
+<!-- markdownlint-enable MD033 -->
+
+## About
 
 - [**Website** — Start here](https://noblackboxes.org/)
+- [**Foundation** — Technology education for everyone](https://noblackboxes.org/nbb-foundation/)
+- [**Courses** — Find the right course for you](https://noblackboxes.org/online-courses/)
+
+## Course material
+
 - [**The Last Black Box** — Open-source course repository](https://github.com/NoBlackBoxes/LastBlackBox)
 - [**Knowledge base** — Concepts, practical guides and demos](https://noblackboxes.github.io/nbb-knowledge-base/)
-- [**Courses** — Learn with the team](https://noblackboxes.org/online-courses/)
-- [**Foundation** — Technology education for everyone](https://noblackboxes.org/nbb-foundation/)
-- [**GitHub** — Our open-source projects](https://github.com/NoBlackBoxes)
-- [**LinkedIn** — News and course updates](https://uk.linkedin.com/company/noblackboxes)
-- [**Contact us** — info@noblackboxes.org](mailto:info@noblackboxes.org)
