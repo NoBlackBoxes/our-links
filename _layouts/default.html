@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f3f3f3">
+    <meta name="description" content="{{ site.description }}">
+    <title>{{ page.page_title }} — {{ site.title }}</title>
+    <link rel="stylesheet" href="{{ '/assets/styles.css' | relative_url }}">
+  </head>
+  <body>
+    <main>
+      <a class="brand" href="https://noblackboxes.org/">
+        <img src="{{ '/assets/logo.png' | relative_url }}" alt="">
+        <span>{{ site.title }}</span>
+      </a>
+
+      {{ content }}
+    </main>
+  </body>
+</html>
