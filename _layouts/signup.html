@@ -31,30 +31,33 @@ layout: default
     </header>
   {% endfor %}
 
+  <script>
+    (() => {
+      const eventContexts = [
+        ...document.querySelectorAll("[data-event-context]"),
+      ];
+      const now = Date.now();
+      const eventContext = eventContexts.find((context) => {
+        const startsAt = Date.parse(context.dataset.offerStarts);
+        const endsAt = Date.parse(context.dataset.offerEnds);
+
+        return Number.isFinite(startsAt) && Number.isFinite(endsAt) &&
+          startsAt < endsAt && now >= startsAt && now < endsAt;
+      });
+      const pageUrl = new URL(window.location.href);
+
+      if (!eventContext) {
+        pageUrl.searchParams.delete("event");
+        window.history.replaceState({}, "", pageUrl);
+        return;
+      }
+
+      document.querySelector("[data-signup-default]").hidden = true;
+      eventContext.hidden = false;
+      pageUrl.searchParams.set("event", eventContext.dataset.eventContext);
+      window.history.replaceState({}, "", pageUrl);
+    })();
+  </script>
+
   <script src="https://form.jotform.com/jsform/{{ page.jotform_id }}"></script>
 </article>
-
-<script>
-  (() => {
-    const requestedEvent = new URLSearchParams(window.location.search)
-      .get("event");
-    const eventContexts = [...document.querySelectorAll("[data-event-context]")];
-    const eventContext = eventContexts.find((context) =>
-      context.dataset.eventContext === requestedEvent
-    );
-
-    if (!eventContext) return;
-
-    const startsAt = Date.parse(eventContext.dataset.offerStarts);
-    const endsAt = Date.parse(eventContext.dataset.offerEnds);
-    const now = Date.now();
-    const offerIsActive = Number.isFinite(startsAt) &&
-      Number.isFinite(endsAt) && startsAt < endsAt &&
-      now >= startsAt && now < endsAt;
-
-    if (!offerIsActive) return;
-
-    document.querySelector("[data-signup-default]").hidden = true;
-    eventContext.hidden = false;
-  })();
-</script>

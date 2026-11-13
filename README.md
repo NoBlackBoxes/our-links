@@ -11,20 +11,20 @@ Edit the list in `index.md`. GitHub Pages converts it to the website automatical
 
 1. Add the event to `_data/events.yml` with a unique identifier, message,
    discount and offer dates.
-2. Build the site and test the event URL before creating or printing its QR
-   code.
+2. Build the site and test the signup page before the event begins.
 
-The GIF London QR uses:
+The single QR code always uses:
 
-<https://noblackboxes.github.io/our-links/signup/?event=gif-london-2026>
+<https://noblackboxes.github.io/our-links/signup/>
 
-While the configured offer is active, that URL shows the GIF London message and
-discount. Outside the offer window, the same URL shows the generic newsletter
-signup page. The form remains available at all times.
+When an event is active, that page automatically shows its configured message
+and discount. Outside an event window, it shows the generic newsletter signup
+message. The form remains available at all times.
 
-The `event` query parameter is stored in the hidden Jotform field with the same
-name. Jotform's submission time determines whether a signup arrived before the
-deadline.
+During an event, the page adds the event identifier to its own URL so Jotform
+can store it in the hidden `event` field. Jotform's submission time determines
+whether a signup arrived before the deadline. Do not configure overlapping
+event windows.
 
 The date check only changes what the page displays. It does not securely enforce
 the discount. Set the same deadline on the coupon or payment system and state
