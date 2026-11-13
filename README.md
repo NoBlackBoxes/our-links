@@ -14,20 +14,19 @@ Edit the list in `index.md`. GitHub Pages converts it to the website automatical
    - `permalink` is the address encoded in the event QR code.
    - `event` is stored in the hidden Jotform field.
    - `offer_starts` is the machine-readable start, including its time zone.
-   - `offer_starts_label` is the same start written for visitors.
    - `offer_ends` is the machine-readable deadline, including its time zone.
    - `offer_ends_label` is the same deadline written for visitors.
    - `jotform_id` is the ID of the permanent signup form.
-3. Replace the final line with a short, event-specific description.
+3. Replace the final line with the permanent, event-specific message.
 4. Build the site and test the event URL before creating or printing its QR code.
 
 For example, a permalink of `/events/example-2026/` produces:
 
 <https://noblackboxes.github.io/our-links/events/example-2026/>
 
-After the deadline, the page automatically replaces the discount message with
-an expiry message. The permanent form remains available. Keep the page at the
-same address because printed QR codes cannot be changed.
+The event name, event message and form remain on the page permanently. The
+discount box is shown only between `offer_starts` and `offer_ends`. Keep the
+page at the same address because printed QR codes cannot be changed.
 
 The date check only changes what the page displays. It does not securely enforce
 the discount. Set the same deadline on the coupon or payment system and state
