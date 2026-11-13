@@ -10,8 +10,27 @@ Edit the list in `index.md`. GitHub Pages converts it to the website automatical
 ## Add an event offer
 
 1. Add the event to `_data/events.yml` with a unique identifier, message,
-   discount and offer dates.
+   discount and offer dates. For example:
+
+   ```yml
+   example-event-2027:
+     name: Example Event 2027
+     message: Add the event-specific message here.
+     discount: 5%
+     discount_applies_to: all No Black Boxes courses
+     offer_starts: "2027-03-10T00:00:00Z"
+     offer_ends: "2027-03-17T00:00:00Z"
+     offer_ends_label: 17 March 2027 at 00:00 GMT
+   ```
+
 2. Build the site and test the signup page before the event begins.
+3. Commit and push the new configuration:
+
+   ```bash
+   git add _data/events.yml
+   git commit -m "Add Example Event offer"
+   git push
+   ```
 
 The single QR code always uses:
 
@@ -21,10 +40,14 @@ When an event is active, that page automatically shows its configured message
 and discount. Outside an event window, it shows the generic newsletter signup
 message. The form remains available at all times.
 
+Do not create a new page, QR code or Jotform for each event. Every event uses
+the same signup page, QR code and permanent Jotform.
+
 During an event, the page adds the event identifier to its own URL so Jotform
-can store it in the hidden `event` field. Jotform's submission time determines
-whether a signup arrived before the deadline. Do not configure overlapping
-event windows.
+can store it in a hidden Short Text field. Its Jotform Unique Name must be
+exactly `event`; leave its default value empty and do not make it required.
+Jotform's submission time determines whether a signup arrived before the
+deadline. Do not configure overlapping event windows.
 
 The date check only changes what the page displays. It does not securely enforce
 the discount. Set the same deadline on the coupon or payment system and state
@@ -59,6 +82,12 @@ Notes:
 2. In **Settings → Pages**, select **Deploy from a branch**.
 3. Select the `main` branch and `/ (root)`, then save.
 
-The site and QR code use this address:
+## QR code assets
 
-<https://noblackboxes.github.io/our-links/>
+- `assets/links-qr-code.svg` points to the general links page:
+  <https://noblackboxes.github.io/our-links/>
+- `assets/signup-qr-code.svg` points to the permanent newsletter and event
+  signup page: <https://noblackboxes.github.io/our-links/signup/>
+
+The signup QR code does not change between events. Test both saved files with a
+phone before printing them.
