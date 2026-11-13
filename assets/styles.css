@@ -45,13 +45,42 @@ main {
   object-fit: contain;
 }
 
-iframe[id="241096255305352"] {
+.event-header {
+  margin-bottom: 24px;
+}
+
+.event-label {
+  margin: 0 0 8px;
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.offer-message {
+  margin: 24px 0;
+  padding: 20px;
+  border: 1px solid var(--ink);
+  border-radius: 6px;
+  background: var(--card);
+}
+
+.offer-message h2 {
+  margin-top: 0;
+}
+
+.offer-message p {
+  margin-bottom: 0;
+}
+
+.event-page iframe {
   display: block;
   width: 100%;
-  margin: 18px 0 38px;
+  margin: 24px 0 38px;
   border: 0;
   border-radius: 8px;
-  background: #000000;
+  background: var(--card);
 }
 
 h1 {

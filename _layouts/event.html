@@ -1,0 +1,56 @@
+---
+layout: default
+---
+
+<article
+  class="event-page"
+  data-offer-starts="{{ page.offer_starts }}"
+  data-offer-ends="{{ page.offer_ends }}"
+>
+  <header class="event-header">
+    <p class="event-label">{{ page.event_name }}</p>
+    <h1>{{ page.title }}</h1>
+    {{ content }}
+  </header>
+
+  <section class="offer-message" data-offer-upcoming hidden>
+    <h2>{{ page.discount }} course discount starts soon</h2>
+    <p>
+      The offer runs from <strong>{{ page.offer_starts_label }}</strong> until
+      <strong>{{ page.offer_ends_label }}</strong>.
+    </p>
+  </section>
+
+  <section class="offer-message" data-offer-active hidden>
+    <h2>Get {{ page.discount }} off</h2>
+    <p>
+      Sign up by <strong>{{ page.offer_ends_label }}</strong> to receive
+      {{ page.discount }} off {{ page.discount_applies_to }}.
+    </p>
+  </section>
+
+  <section class="offer-message" data-offer-expired hidden>
+    <h2>This event offer has ended</h2>
+    <p>You can still use the form below to stay in touch.</p>
+  </section>
+
+  <script src="https://form.jotform.com/jsform/{{ page.jotform_id }}?event={{ page.event | uri_escape }}"></script>
+</article>
+
+<script>
+  (() => {
+    const page = document.querySelector("[data-offer-ends]");
+    const startsAt = Date.parse(page.dataset.offerStarts);
+    const endsAt = Date.parse(page.dataset.offerEnds);
+    const now = Date.now();
+    const datesAreValid = Number.isFinite(startsAt) &&
+      Number.isFinite(endsAt) && startsAt < endsAt;
+    const offerIsUpcoming = datesAreValid && now < startsAt;
+    const offerIsActive = datesAreValid && now >= startsAt && now < endsAt;
+
+    page.querySelector("[data-offer-upcoming]").hidden = !offerIsUpcoming;
+    page.querySelector("[data-offer-active]").hidden = !offerIsActive;
+    page.querySelector("[data-offer-expired]").hidden =
+      offerIsUpcoming || offerIsActive;
+  })();
+</script>

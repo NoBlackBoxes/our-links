@@ -1,10 +1,37 @@
 # No Black Boxes links
 
-A small Markdown link page published with GitHub Pages.
+A small Markdown link page and separate event signup pages published with
+GitHub Pages.
 
 ## Edit the links
 
 Edit the list in `index.md`. GitHub Pages converts it to the website automatically.
+
+## Add an event signup page
+
+1. Copy `events/_template.md` to `events/event-name.md`.
+2. Replace every placeholder in its frontmatter:
+   - `permalink` is the address encoded in the event QR code.
+   - `event` is stored in the hidden Jotform field.
+   - `offer_starts` is the machine-readable start, including its time zone.
+   - `offer_starts_label` is the same start written for visitors.
+   - `offer_ends` is the machine-readable deadline, including its time zone.
+   - `offer_ends_label` is the same deadline written for visitors.
+   - `jotform_id` is the ID of the permanent signup form.
+3. Replace the final line with a short, event-specific description.
+4. Build the site and test the event URL before creating or printing its QR code.
+
+For example, a permalink of `/events/example-2026/` produces:
+
+<https://noblackboxes.github.io/our-links/events/example-2026/>
+
+After the deadline, the page automatically replaces the discount message with
+an expiry message. The permanent form remains available. Keep the page at the
+same address because printed QR codes cannot be changed.
+
+The date check only changes what the page displays. It does not securely enforce
+the discount. Set the same deadline on the coupon or payment system and state
+clearly what the discount applies to.
 
 ## Local development
 

@@ -3,13 +3,7 @@ layout: default
 page_title: No Black Boxes links
 ---
 
-# Stay in touch
-
-<!-- markdownlint-disable MD033 -->
-
-<script src="https://form.jotform.com/jsform/241096255305352"></script>
-
-<!-- markdownlint-enable MD033 -->
+# No Black Boxes links
 
 ## About
 
